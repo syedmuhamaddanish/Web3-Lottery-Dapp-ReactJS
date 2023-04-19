@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
+import Home from './Home';
+import PickWinner from './PickWinner';
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  return(
+    <BrowserRouter>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/PickWinner">PickWinner</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route path="/PickWinner" element={<PickWinner />}></Route>
+        <Route path="/" element={<Home />}></Route>
+      </Routes>
     </div>
-  );
+    </BrowserRouter>
+  )
 }
 
 export default App;
